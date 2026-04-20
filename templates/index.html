@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SevenChat-Web</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <header class="sidebar-header">
+                <h2>Sellect the room</h2>
+            </header>
+            <div class="rooms-list" id="rooms-list">
+                <div class="loading-text">Loading room list...</div>
+            </div>
+        </aside>
+
+        <main class="chat-container">
+            <header class="chat-header">
+                <h2 id="current-room-name">Rooms</h2>
+            </header>
+            
+            <div class="chat-history" id="chat-history">
+                <button id="load-more-btn" class="load-more-btn" style="display: none;">Load previous messages</button>
+                <div id="messages-container"></div>
+            </div>
+
+            <div class="chat-input-area">
+                <form id="message-form" class="message-form">
+                    <input 
+                        type="text" 
+                        id="message-input" 
+                        placeholder="Write a message..." 
+                        autocomplete="off"
+                        disabled
+                    >
+                    <button type="submit" id="send-button" disabled>Send</button>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
