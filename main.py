@@ -4,6 +4,7 @@ import os
 import sys
 from dotenv import load_dotenv, dotenv_values 
 from ui import BaseUserInterface, ConsoleInterface
+from web_api import WebAPIInterface
 from nio import (
     AsyncClient, 
     AsyncClientConfig,
@@ -106,7 +107,7 @@ async def main():
 
     os.makedirs(STORE_PATH, exist_ok=True)
 
-    ui = ConsoleInterface()
+    ui = WebAPIInterface()
     bot = MatrixBot(HOMESERVER, USER_ID, PASSWORD, DEVICE_ID, STORE_PATH, ui)
 
     if not await bot.login():
